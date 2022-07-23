@@ -8,16 +8,18 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 const canvas = document.querySelector("canvas.webgl");
 
 const scene = new THREE.Scene();
-
 /**
- * Models
+ * loaders
  */
+
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath("/draco/");
 
 const gltfLoader = new GLTFLoader();
 gltfLoader.setDRACOLoader(dracoLoader);
-
+/**
+ * Models
+ */
 gltfLoader.load("/suzanne.glb", (gltf) => {
   console.log(gltf.scene);
   gltf.scene.children[0].material = testSphereMat;
